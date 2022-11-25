@@ -46,7 +46,7 @@ function _3D() {
     }
 
     worker.draw = () => {
-      worker.background(04, 04, 04);
+      worker.background(5, 5, 7);
 
       worker.rotateX(24.60);
       worker.rotateY(worker.millis() / 1000);
