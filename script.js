@@ -46,15 +46,15 @@ function _3D() {
     }
 
     worker.draw = () => {
-      worker.background(5, 5, 7);
+      worker.background(245, 245, 245);
 
       worker.rotateX(24.60);
-      worker.rotateY(worker.millis() / 1000);
+      worker.rotateY(worker.millis() / 250);
       worker.rotateZ(15.700);
 
       if (is_crazy) {
         worker.scale(0.9);
-        worker.rotateY(worker.millis() / -200);
+        worker.rotateY(worker.millis() / -550);
         worker.rotateZ(worker.millis() / 500)
       }
 
