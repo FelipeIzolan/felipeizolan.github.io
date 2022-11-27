@@ -49,9 +49,9 @@ img {
 }
 
 span::after{
-  animation: blink 0.150s infinite;
+  animation: blink 0.500s infinite;
   content: " ";
-  background: white;
+  background: black;
   padding: 1px;
   height: 100%;
 }
