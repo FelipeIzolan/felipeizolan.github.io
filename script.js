@@ -1,3 +1,6 @@
+_3D();
+subtitle();
+
 function subtitle() {
   const span = document.querySelector("span");
   const words = ["The best programmer!", "I like javascript,typescript,c,...", "Brazil/SP (UTC/-3)"];
@@ -46,7 +49,7 @@ function _3D() {
     }
 
     worker.draw = () => {
-      worker.background(245, 245, 245);
+      worker.background(255, 255, 255);
 
       worker.rotateX(24.60);
       worker.rotateY(worker.millis() / 250);
@@ -69,5 +72,3 @@ function _3D() {
   }, root);
 }
 
-_3D();
-subtitle();
