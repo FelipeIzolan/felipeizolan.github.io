@@ -1,7 +1,10 @@
-_3D();
-subtitle();
+var THEME = "black"
 
-function subtitle() {
+__3D();
+__subtitle();
+__theme_switch();
+
+function __subtitle() {
   const span = document.querySelector("span");
   const words = ["The best programmer!", "I like javascript,typescript,c,...", "Brazil/SP (UTC/-3)"];
   
@@ -31,7 +34,16 @@ function subtitle() {
   }, type_delay);
 }
 
-function _3D() {
+function __theme_switch() {
+  let button = document.querySelector("button");
+  let root = document.querySelector(":root")
+  button.onclick = function () {
+    THEME = THEME === "white" ? "black" : "white";
+    root.style.setProperty("--background", THEME);
+  }
+}
+
+function __3D() {
   const root = document.querySelector("#root");
   const instance = new p5(worker => {
     let model;
@@ -49,7 +61,7 @@ function _3D() {
     }
 
     worker.draw = () => {
-      worker.background(255, 255, 255);
+      worker.background(THEME);
 
       worker.rotateX(24.60);
       worker.rotateY(worker.millis() / 250);
@@ -71,4 +83,3 @@ function _3D() {
     }
   }, root);
 }
-
