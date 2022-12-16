@@ -71,7 +71,7 @@ iframe {
 span::after{
   animation: blink 0.500s infinite;
   content: " ";
-  background: black;
+  background: #4AF626;
   padding: 1px;
   height: 100%;
 }
