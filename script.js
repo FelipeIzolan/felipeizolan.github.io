@@ -51,7 +51,7 @@ function __3D() {
     let is_crazy;
 
     worker.setup = () => { 
-      let canvas = worker.createCanvas(275, 340, worker.WEBGL).canvas;
+      let canvas = worker.createCanvas(295, 340, worker.WEBGL).canvas;
       canvas.onclick = () => is_crazy = is_crazy ? false : true;
     }
 
