@@ -72,11 +72,17 @@ function __3D() {
         worker.rotateY(worker.millis() / -550);
         worker.rotateZ(worker.millis() / 500)
       }
-
-      worker.pointLight(112, 195, 252, 1, 1, 1);
-      worker.directionalLight(255, 255, 255, 1.3, 0.8, -1);
-      worker.directionalLight(255, 255, 255, -1.3, 0.8, -1);
-
+      
+      if (THEME === "black") {
+        worker.pointLight(10, 220, 50, 1, 1, 1);
+        worker.directionalLight(110, 125, 40, 1.3, 0.8, -1);
+        worker.directionalLight(120, 255, 120, -1.3, 0.8, -1);
+      } else {
+        worker.pointLight(10, 220, 50, 1, 1, 1);
+        worker.directionalLight(255, 255, 255, -1.3, 0.8, -1);
+        worker.directionalLight(255, 255, 255, 1.3, 0.8, -1);
+      }
+      
       worker.normalMaterial();
       worker.texture(texture);
       worker.model(model);  
