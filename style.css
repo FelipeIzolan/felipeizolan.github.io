@@ -80,4 +80,8 @@ span::after{
   body { flex-direction: column-reverse; }
   div { margin-left: 0; margin-top: 80px; }
   iframe { display: none; }
+  h1 { font-size: xxx-large; }
+  span { font-size: small; }
+  img { width: 32px; }
+  canvas { transform: scale(1.5); margin-bottom: 32px; }
 }
