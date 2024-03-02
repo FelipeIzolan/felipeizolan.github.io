@@ -8,62 +8,31 @@ type BootProps = {
 const Boot = (props: BootProps) => {
   const [text, setText] = useState<string>('');
 
-  useEffect(() => { 
+  useEffect(() => {
+    const steps = [
+      { text: BIOS, delay: 200 },
+      { text: getSpriteImg(), delay: 200 },
+      { text: 'Loading <span class="text-orange">Izo-Kernel</span>...;<br/>', delay: 200 },
+      { text: [logOK('processor'), logOK('input/output'), logOK('memory'), logOK('disk'), logOK('device')].join(''), delay: 50 },
+      { text: 'Loading <span class="text-orange">Daemons</span>...;<br/>', delay: 200 },
+      { text: [logOK('systemd'), logOK('kthread'), logOK('kworker'), logOK('network'), logOK('pipewire'), logOK('dm'), logOK('wm')].join(''), delay: 50 },
+      { text: 'Loading <span class="text-orange">Shell</span>...;<br/>', delay: 200 },
+      { text: [logOK('bash'), logOK('environment')].join(''), delay: 50 },
+      { text: `date: ${new Date().toString()}<br/>screen: ${window.screen.width}x${window.screen.height}<br/>lang: ${window.navigator.language}<br/>`, delay: 50 },
+      { text: 'Opening <span class="text-orange">OS</span>...;<br/>', delay: 200 },
+      { text: logOK('everything is ok!'), delay: 50 }
+    ];
+
     let time = 0;
+    steps.forEach(step => {
+      setTimeout(() => setText(prevText => prevText + step.text), time += step.delay);
+    });
 
-    setTimeout(() => setText(text => text + BIOS), time += 200);
-    setTimeout(() => setText(text => text + getSpriteImg()), time += 200);
-
-    setTimeout(() => setText(text => text + 'Loading <span class="text-orange">Izo-Kernel</span>.'), time += 200);
-    setTimeout(() => setText(text => text + '.'), time += 200);
-    setTimeout(() => setText(text => text + '.;<br/>'), time += 200);
-    setTimeout(() => setText(text => text + logOK('processor')), time += 50);
-    setTimeout(() => setText(text => text + logOK('input/output')), time += 50);
-    setTimeout(() => setText(text => text + logOK('memory')), time += 50);
-    setTimeout(() => setText(text => text + logOK('disk')), time += 50);
-    setTimeout(() => setText(text => text + logOK('device')), time += 50);
-
-    setTimeout(() => setText(text => text + '<br/>'), time += 50);
-    
-    setTimeout(() => setText(text => text + 'Loading <span class="text-orange">Daemons</span>.'), time += 200);
-    setTimeout(() => setText(text => text + '.'), time += 200);
-    setTimeout(() => setText(text => text + '.;<br/>'), time += 200);
-
-    setTimeout(() => setText(text => text + logOK('systemd')), time += 50);
-    setTimeout(() => setText(text => text + logOK('kthread')), time += 50);
-    setTimeout(() => setText(text => text + logOK('kworker')), time += 50);
-    setTimeout(() => setText(text => text + logOK('network')), time += 50);
-    setTimeout(() => setText(text => text + logOK('pipewire')), time += 50);
-    setTimeout(() => setText(text => text + logOK('dm')), time += 50);
-    setTimeout(() => setText(text => text + logOK('wm')), time += 50);
-  
-    setTimeout(() => setText(text => text + '<br/>'), time += 50);
-    
-    setTimeout(() => setText(text => text + 'Loading <span class="text-orange">Shell</span>.'), time += 200);
-    setTimeout(() => setText(text => text + '.'), time += 200);
-    setTimeout(() => setText(text => text + '.;<br/>'), time += 200);
-
-    setTimeout(() => setText(text => text + logOK('bash')), time += 50);
-    setTimeout(() => setText(text => text + logOK('environment')), time += 50);
-
-    setTimeout(() => setText(text => text + '<br/>'), time += 50);
-
-    setTimeout(() => setText(text => text + 'date: ' + new Date().toString() + '<br/>'), time += 50);
-    setTimeout(() => setText(text => text + 'screen: '+ window.screen.width + 'x' + window.screen.height + '<br/>'), time += 50);
-    setTimeout(() => setText(text => text + 'lang: ' + window.navigator.language + '<br/>'), time += 50);
-
-    setTimeout(() => setText(text => text + '<br/>'), time += 50);
-
-    setTimeout(() => setText(text => text + 'Opening <span class="text-orange">OS</span>.'), time += 200);
-    setTimeout(() => setText(text => text + '.'), time += 200);
-    setTimeout(() => setText(text => text + '.;<br/>'), time += 200);
-
-    setTimeout(() => setText(text => text + logOK('everything is ok!')), time += 50);
-    
-    setTimeout(() => props.setPage('terminal'), time += 850);
+    setTimeout(() => props.setPage('terminal'), time + 850);
   }, []);
 
-  return <p dangerouslySetInnerHTML={{ __html: text}} class='ml-10 leading-3'/> 
+  return <p dangerouslySetInnerHTML={{ __html: text }} className='ml-10 leading-3'/>;
+  
 };
 
 export default Boot;
