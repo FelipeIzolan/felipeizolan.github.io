@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+@font-face {
+  font-family: 'minimal';
+  src: url('../Minimal4.ttf') 
+}
+
+body {
+  color: white;
+  background: #181a1c;
+  font-family: 'minimal';
+  display: flex;
+  justify-content: center;
+}
+
+::-webkit-scrollbar {
+  visibility: hidden;
+}
+
+img {
+  image-rendering: pixelated;
+}
+
+.font-pixel {
+  font-family: minimal;
+}
