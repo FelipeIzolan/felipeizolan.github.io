@@ -2,20 +2,20 @@ import { StateUpdater, useEffect, useRef, useState } from "preact/hooks";
 import { getSpriteImg, IZOFETCH, HELP, LS } from "../utils"; 
 
 type TerminalProps = {
-  setPage: StateUpdater<'boot' | 'terminal'>;
+  setPage: StateUpdater<'boot' | 'terminal' | 'ui'>;
 };
 
 const Terminal = (props: TerminalProps) => {
   const [text, setText] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const command: { [key: string]: () => unknown } = {
+  const command: { [key: string]: () => void } = {
+    ui: () => props.setPage('ui'),
     ls: () => setText(text => text + LS),
     pkm: () => setText(text => text + getSpriteImg()),
     help: () => setText(text => text + HELP),
     clear: () => setText(''),
     reboot: () => props.setPage('boot'),
-//    projects: () => setText(text => text + PROJECTS),
     izofetch: () => setText(text => text + IZOFETCH),
     shutdown: () => { window.document.body.innerHTML = ''; history.back() },
   }

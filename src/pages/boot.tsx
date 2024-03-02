@@ -2,7 +2,7 @@ import { StateUpdater, useEffect, useState } from "preact/hooks";
 import { BIOS, getSpriteImg, logOK } from "../utils";
 
 type BootProps = {
-  setPage: StateUpdater<'boot' | 'terminal'>;
+  setPage: StateUpdater<'boot' | 'terminal' | 'ui'>;
 };
 
 const Boot = (props: BootProps) => {
@@ -54,11 +54,11 @@ const Boot = (props: BootProps) => {
 
     setTimeout(() => setText(text => text + '<br/>'), time += 50);
 
-    setTimeout(() => setText(text => text + 'Booting <span class="text-orange">OS</span>.'), time += 200);
+    setTimeout(() => setText(text => text + 'Opening <span class="text-orange">OS</span>.'), time += 200);
     setTimeout(() => setText(text => text + '.'), time += 200);
     setTimeout(() => setText(text => text + '.;<br/>'), time += 200);
 
-    setTimeout(() => setText(text => text + logOK('')), time += 50);
+    setTimeout(() => setText(text => text + logOK('everything is ok!')), time += 50);
     
     setTimeout(() => props.setPage('terminal'), time += 850);
   }, []);

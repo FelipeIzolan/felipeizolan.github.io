@@ -19,7 +19,9 @@ export const HELP = `
 `
 
 export const IZOFETCH = `
-<pre class='font-pixel'>
+<div class='flex items-center'>
+<img class='mt-5' src='/izo.png' width=96 />
+<pre class='font-pixel ml-8'>
 <span class='text-blue'>felipeizolan</span>@<span class='text-orange'>izolipe_os</span>
 ---------------------
 <span class='text-blue'>OS</span>: Arch Linux x86_64
@@ -29,17 +31,19 @@ export const IZOFETCH = `
 <span class='text-blue'>RAM</span>: 8 GiB    
 ---------------------
 </pre>
+</div>
 <br/>
 `;
 
 export const LS = `
 <pre class='font-pixel'>
-felipeizolan.github.io<span class='text-blue'>/</span>  
-|-- assets<span class='text-blue'>/</span>
+<span class='text-cyan'>felipeizolan.github.io</span><span class='text-blue'>/</span>  
+|-- <span class='text-cyan'>assets</span><span class='text-blue'>/</span>
 |   |-- index.js
 |   \`-- index.css
 |-- index.html
-\`-- Minimal4.ttf
+|-- Minimal4.ttf
+\`-- izo.png
 </pre>
 <br/>
 `

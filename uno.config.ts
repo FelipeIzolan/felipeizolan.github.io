@@ -1,11 +1,10 @@
-import { 
-  defineConfig,
-  presetUno,
-} from "unocss";
+import { defineConfig, presetUno } from "unocss";
+import { presetExtra } from "unocss-preset-extra";
 
 export default defineConfig({
   presets: [
-    presetUno()
+    presetUno(),
+    presetExtra()
   ], 
   rules: [
     [/^m-([\.\d]+)$/, ([_, num]) => ({ margin: `${parseInt(num) * 2}px` })],
@@ -20,10 +19,11 @@ export default defineConfig({
     [/^h-([\.\d]+)$/, ([_, num]) => ({ height: `${parseInt(num)}%` })],
   ],
   safelist: [
-    'border', 
-    'border-solid',
-    'border-white',
-    'text-yellow',
-    'text-blue'
+    'flex',
+    'items-center',
+    'text-blue',
+    'text-cyan',
+    'mt-5',
+    'ml-8'
   ]
 })
