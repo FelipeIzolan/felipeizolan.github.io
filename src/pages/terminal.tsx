@@ -30,8 +30,8 @@ const Terminal = (props: TerminalProps) => {
   useEffect(() => {
     setText(IZOFETCH);
     setText(text => text + 'Welcome to my portfolio!<br/>');
-    setText(text => text + 'Type <span class=\'text-purple\'>\'HELP\'</span> - list all commands;<br/>');
-    setText(text => text + 'Type <span class=\'text-purple\'>\'UI\'</span> - change to user-interface mode;<br/><br/>');
+    setText(text => text + 'Type <span class=\'text-purple\'>\'UI\'</span> - change to user-interface mode;<br/>');
+    setText(text => text + 'Type <span class=\'text-purple\'>\'HELP\'</span> - list all commands;<br/><br/>');
 
     inputRef.current!.focus();
   }, []);
@@ -41,8 +41,8 @@ const Terminal = (props: TerminalProps) => {
   <p class='leading-3' dangerouslySetInnerHTML={{ __html: text }} />
   <label class='text-green'>{'>'}</label>
   <input 
-    class='w-90 ml-2 input leading-3 bg-transparent border-none text-white font-pixel text-3xl sm:text-4xl outline-none'
-    placeholder='type a command'
+    class='w-90 ml-2 input bg-transparent border-none text-white font-pixel text-3xl outline-none'
+    placeholder='Type a command'
     type='text' 
     ref={inputRef} 
     onKeyDown={(ev: KeyboardEvent) => inputHandler(inputRef.current!.value, ev)}

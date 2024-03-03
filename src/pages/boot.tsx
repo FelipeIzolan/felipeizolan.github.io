@@ -11,12 +11,12 @@ const Boot = (props: BootProps) => {
   useEffect(() => { 
     let time = 0;
 
-    setTimeout(() => setText(text => text + BIOS), time += 200);
-    setTimeout(() => setText(text => text + getSpriteImg()), time += 200);
+    setTimeout(() => setText(text => text + BIOS), time += 100);
+    setTimeout(() => setText(text => text + getSpriteImg()), time += 100);
 
-    setTimeout(() => setText(text => text + 'Loading <span class="text-orange">Izo-Kernel</span>.'), time += 200);
-    setTimeout(() => setText(text => text + '.'), time += 200);
-    setTimeout(() => setText(text => text + '.;<br/>'), time += 200);
+    setTimeout(() => setText(text => text + 'Loading <span class="text-orange">Izo-Kernel</span>.'), time += 100);
+    setTimeout(() => setText(text => text + '.'), time += 100);
+    setTimeout(() => setText(text => text + '.;<br/>'), time += 100);
     setTimeout(() => setText(text => text + logOK('processor')), time += 50);
     setTimeout(() => setText(text => text + logOK('input/output')), time += 50);
     setTimeout(() => setText(text => text + logOK('memory')), time += 50);
@@ -25,9 +25,9 @@ const Boot = (props: BootProps) => {
 
     setTimeout(() => setText(text => text + '<br/>'), time += 50);
     
-    setTimeout(() => setText(text => text + 'Loading <span class="text-orange">Daemons</span>.'), time += 200);
-    setTimeout(() => setText(text => text + '.'), time += 200);
-    setTimeout(() => setText(text => text + '.;<br/>'), time += 200);
+    setTimeout(() => setText(text => text + 'Loading <span class="text-orange">Daemons</span>.'), time += 100);
+    setTimeout(() => setText(text => text + '.'), time += 100);
+    setTimeout(() => setText(text => text + '.;<br/>'), time += 100);
 
     setTimeout(() => setText(text => text + logOK('systemd')), time += 50);
     setTimeout(() => setText(text => text + logOK('kthread')), time += 50);
@@ -39,9 +39,9 @@ const Boot = (props: BootProps) => {
   
     setTimeout(() => setText(text => text + '<br/>'), time += 50);
     
-    setTimeout(() => setText(text => text + 'Loading <span class="text-orange">Shell</span>.'), time += 200);
-    setTimeout(() => setText(text => text + '.'), time += 200);
-    setTimeout(() => setText(text => text + '.;<br/>'), time += 200);
+    setTimeout(() => setText(text => text + 'Loading <span class="text-orange">Shell</span>.'), time += 100);
+    setTimeout(() => setText(text => text + '.'), time += 100);
+    setTimeout(() => setText(text => text + '.;<br/>'), time += 100);
 
     setTimeout(() => setText(text => text + logOK('bash')), time += 50);
     setTimeout(() => setText(text => text + logOK('environment')), time += 50);
@@ -54,13 +54,12 @@ const Boot = (props: BootProps) => {
 
     setTimeout(() => setText(text => text + '<br/>'), time += 50);
 
-    setTimeout(() => setText(text => text + 'Opening <span class="text-orange">OS</span>.'), time += 200);
-    setTimeout(() => setText(text => text + '.'), time += 200);
-    setTimeout(() => setText(text => text + '.;<br/>'), time += 200);
+    setTimeout(() => setText(text => text + 'Opening <span class="text-orange">OS</span>.'), time += 100);
+    setTimeout(() => setText(text => text + '.'), time += 100);
+    setTimeout(() => setText(text => text + '.;<br/>'), time += 100);
 
     setTimeout(() => setText(text => text + logOK('everything is ok!')), time += 50);
-    
-    setTimeout(() => props.setPage('terminal'), time += 850);
+    setTimeout(() => props.setPage('ui'), time += 500);
   }, []);
 
   return <p dangerouslySetInnerHTML={{ __html: text}} class='ml-10 leading-3'/> 
