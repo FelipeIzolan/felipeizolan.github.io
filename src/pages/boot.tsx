@@ -40,13 +40,16 @@ const Boot = (props: BootProps) => {
       [logOK('bash'), 100],
       [logOK('environment') + '<br/>', 100],
       [`date: ${new Date().toString()}<br/>screen: ${window.screen.width}x${window.screen.height}<br/>lang: ${window.navigator.language}<br/><br/>`, 50],
-      ["Hello, World!", 100],
+      ['Loading <span class="text-orange">Terminal</span>.', 100],
+      ['.', 50],
+      ['.;<br/>', 50],
+      [logOK("Hello, World!"), 100],
     ];
 
     for (let [text, delay] of steps)
       setTimeout(() => setText(prevText => prevText + text), time += delay);
 
-    setTimeout(() => props.setPage('terminal'), time + 700);
+    setTimeout(() => props.setPage('terminal'), time + 800);
     // time == 3000;
   }, []);
 
