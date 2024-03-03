@@ -2,7 +2,7 @@ import { StateUpdater, useEffect, useState } from "preact/hooks";
 import { BIOS, getSpriteImg, logOK } from "../utils";
 
 type BootProps = {
-  setPage: StateUpdater<'boot' | 'terminal' | 'ui'>;
+  setPage: StateUpdater<'boot' | 'terminal'>;
 };
 
 type Step = [string, number];

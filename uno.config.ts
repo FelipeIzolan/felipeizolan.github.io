@@ -1,10 +1,11 @@
-import { defineConfig, presetUno } from "unocss";
+import { defineConfig, presetUno, presetMini } from "unocss";
 import { presetExtra } from "unocss-preset-extra";
 
 export default defineConfig({
   presets: [
     presetUno(),
-    presetExtra()
+    presetExtra(),
+    presetMini()
   ], 
   rules: [
     [/^m-([\.\d]+)$/, ([_, num]) => ({ margin: `${parseInt(num) * 2}px` })],
@@ -12,18 +13,22 @@ export default defineConfig({
     [/^mr-([\.\d]+)$/, ([_, num]) => ({ 'margin-right': `${parseInt(num) * 2}px` })],
     [/^mb-([\.\d]+)$/, ([_, num]) => ({ 'margin-bottom': `${parseInt(num) * 2}px` })],
     [/^mt-([\.\d]+)$/, ([_, num]) => ({ 'margin-top': `${parseInt(num) * 2}px` })],
-
+    ['leading-3', {'line-height': '12.5px'}],
     [/^p-([\.\d]+)$/, ([_, num]) => ({ padding: `${parseInt(num) * 2}px` })],
     
     [/^w-([\.\d]+)$/, ([_, num]) => ({ width: `${parseInt(num)}%` })],
     [/^h-([\.\d]+)$/, ([_, num]) => ({ height: `${parseInt(num)}%` })],
+    
   ],
   safelist: [
     'flex',
     'items-center',
     'text-blue',
     'text-cyan',
-    'mt-5',
+    'text-red',
+    'text-yellow',
+    'mt-3',
+    'mt-1',
     'ml-8'
   ]
 })

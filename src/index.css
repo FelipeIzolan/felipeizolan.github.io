@@ -25,6 +25,10 @@ img {
   image-rendering: pixelated;
 }
 
+a {
+  text-decoration: none;
+}
+
 .font-pixel {
   font-family: 'tiny';
 }

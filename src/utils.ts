@@ -1,26 +1,40 @@
+export const logOK = (log: string) => `[ <span class="text-green">OK</span> ] ${log}<br/>`;
 export const getSprite = (id: number) => `https://raw.githubusercontent.com/Purukitto/pokemon-data.json/master/images/pokedex/sprites/${'0'.repeat(4 - Math.abs(Math.log10(id) + 1.001))}${id}.png`
 export const getSpriteImg = (id?: number, width?: number) => `<img src='${getSprite(id ?? Math.round(Math.random() * 809))}' width=${width ?? 128} /><br/>`;
 
-export const logOK = (log: string) => `[ <span class="text-green">OK</span> ] ${log}<br/>`;
+const createProject = (name: string, description: string, stack: string[], url: string) => 
+`
+| <span class='text-blue'>name</span>: ${name}
+| <span class='text-blue'>description</span>: ${description}
+| <span class='text-blue'>stack</span>: ${stack.join(', ')}
+| <span class='text-blue'>url</span>: ${url}
+--`
 
 export const BIOS = `IzolipeOS - BIOS 0x66.042PC, v010.2434;<br/>` +
                     `Copyright (c) 2004-2024, IzoTec, LTD;<br/>`;
 
 export const HELP = `
-<span class='text-purple'>'UI'</span> - change to user-interface mode;<br/>
-<span class='text-purple'>'LS'</span> - list directory files;<br/>
-<span class='text-purple'>'PKM'</span> - print random pokemon (gen 1-7);<br/>
-<span class='text-purple'>'HELP'</span> - list all commands;<br/>
-<span class='text-purple'>'CLEAR'</span> - clear screen;<br/>
-<span class='text-purple'>'REBOOT'</span> - reboot the operating-system;<br/>
-<span class='text-purple'>'IZOFETCH'</span> - print my system-information;<br/>
-<span class='text-purple'>'SHUTDOWN'</span> - shutdown the operating-system;<br/>
+<pre class='font-pixel leading-3'>
+-- <span class='text-green'>MAIN</span> --
+<span class='text-purple'>'ABOUT'</span> - about-me;
+<span class='text-purple'>'SKILL'</span> - list my main skills;
+<span class='text-purple'>'SOCIAL'</span> - list my social links;
+<span class='text-purple'>'PROJECT'</span> - list my favorite projects;
+<span class='text-purple'>'IZOFETCH'</span> - list my system-information;
+
+-- <span class='text-green'>UTILS</span> --
+<span class='text-purple'>'LS'</span> - list directory files;
+<span class='text-purple'>'PKM'</span> - print random pokemon (gen 1-7);
+<span class='text-purple'>'HELP'</span> - list all commands;
+<span class='text-purple'>'CLEAR'</span> - clear screen;
+<span class='text-purple'>'REBOOT'</span> - reboot the operating-system;
+</pre>
 <br/>
 `
 
 export const IZOFETCH = `
 <div class='flex items-center'>
-<img class='mt-5' src='/izo.png' width=96 />
+<img class='mt-3' src='/izo.png' width=96 />
 <pre class='font-pixel ml-8'>
 <span class='text-blue'>felipeizolan</span>@<span class='text-orange'>izolipe_os</span>
 ---------------------
@@ -36,6 +50,7 @@ export const IZOFETCH = `
 `;
 
 export const LS = `
+-- <span class='text-green'>LS</span> --
 <pre class='font-pixel'>
 <span class='text-cyan'>felipeizolan.github.io</span><span class='text-blue'>/</span>  
 |-- <span class='text-cyan'>assets</span><span class='text-blue'>/</span>
@@ -47,3 +62,70 @@ export const LS = `
 </pre>
 <br/>
 `
+
+export const ABOUT = `
+<pre class='font-pixel'>
+-- <span class='text-green'>ABOUT-ME</span> --
+<span class='text-blue'>name</span>: Felipe Izolan;
+<span class='text-blue'>years_old</span>: ${new Date(Date.now() - new Date('2004-4-9').getTime()).getFullYear() - 1970};
+<span class='text-blue'>location</span>: Brazil;
+<span class='text-blue'>status</span>: Open to work;
+
+I'm a programmer.
+I like build things with my keyboard.
+I like Computer, Linux, Nature, Food and Games.
+</pre>
+<br/>
+`
+
+export const SKILL = `
+<pre class='font-pixel'>
+-- <span class='text-green'>SKILL</span> --
+<span class='text-blue'>Languages</span>
+|-- C
+|-- C++
+|-- Lua
+|-- JavaScript
+|-- TypeScript
+|-- HTML
+\`-- CSS
+
+<span class='text-blue'>Database</span>
+|-- NoSQL
+|   |-- MongoDB
+|   |-- Firebase
+|   \`-- Redis (or KeyDB)
+\`-- SQL
+    \`-- MySql
+
+<span class='text-blue'>Operational-System</span>
+|-- Linux
+\`-- Windows
+</pre>
+<br/>
+`
+
+export const SOCIAL = `
+<pre class='font-pixel'>
+-- <span class='text-green'>SOCIAL</span> --
+<span class='text-blue'>Discord</span>: art9335
+<span class='text-blue'>GitHub</span>: <a>felipeizolan</a>
+<span class='text-blue'>Email</span>: contact@felipeizolan.anonaddy.com
+</pre>
+<br/>
+`
+
+export const PROJECT = `
+<pre class='font-pixel'>
+-- <span class='text-green'>PROJECT</span> --
+${
+'|' +
+createProject('fishtude', 'Open-source fishing game.', ['C', 'SDL2'], 'github.com/FelipeIzolan/phaser-isometric-engine') +
+createProject('phaser-isometric-engine', 'Grid based isometric-engine.', ['TypeScript', 'Phaser', 'Vite'], 'github.com/FelipeIzolan/phaser-isometric-engine') +
+createProject('spaceworm', 'Casual retro-style indie game', ['Pico-8', 'Lua'], 'store.steampowered.com/app/2367320/SpaceWorm') + 
+createProject('lipoide.nvim', 'My neovim colorscheme.', ['Neovim', 'Lua'], 'github.com/FelipeIzolan/lipoide.nvim') 
+}
+</pre>
+<br/>
+`
+
