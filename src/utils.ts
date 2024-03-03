@@ -42,7 +42,7 @@ export const LS = `
 |   |-- index.js
 |   \`-- index.css
 |-- index.html
-|-- Minimal4.ttf
+|-- TinyUnicode.ttf
 \`-- izo.png
 </pre>
 <br/>

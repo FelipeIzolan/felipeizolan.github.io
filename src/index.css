@@ -5,14 +5,14 @@
 }
 
 @font-face {
-  font-family: 'minimal';
-  src: url('../Minimal4.ttf') 
+  font-family: 'tiny';
+  src: url('../TinyUnicode.ttf') 
 }
 
 body {
   color: white;
   background: #181a1c;
-  font-family: 'minimal';
+  font-family: 'tiny';
   display: flex;
   justify-content: center;
 }
@@ -26,5 +26,5 @@ img {
 }
 
 .font-pixel {
-  font-family: minimal;
+  font-family: 'tiny';
 }
