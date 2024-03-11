@@ -1,8 +1,8 @@
 import { StateUpdater, useEffect, useRef, useState } from "preact/hooks";
-import { getSpriteImg, IZOFETCH, HELP, LS, ABOUT, SKILL, SOCIAL, PROJECT } from "../utils"; 
+import { getSpriteImg, IZOFETCH, HELP, LS, ABOUT, SKILL, SOCIAL, PROJECT } from "../components/terminal"; 
 
 type TerminalProps = {
-  setPage: StateUpdater<'boot' | 'terminal'>;
+  setPage: StateUpdater<'boot' | 'terminal' | 'ui'>;
 };
 
 const Terminal = (props: TerminalProps) => {
@@ -12,24 +12,29 @@ const Terminal = (props: TerminalProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const command: { [key: string]: () => void } = {
+    ui: () => props.setPage('ui'),
     ls: () => setText(text => text + LS),
     pkm: () => setText(text => text + getSpriteImg()),
     help: () => setText(text => text + HELP),
-    skill: () => setText(text => text + SKILL),
+    skill: () => setText(text => text + '-- <span class="text-green">SKILL</span> --' + SKILL + '<br/>'),
     about: () => setText(text => text + ABOUT),
     social: () => setText(text => text + SOCIAL),
     project: () => setText(text => text + PROJECT),
+    izofetch: () => setText(text => text + IZOFETCH),
     clear: () => setText(''),
     reboot: () => props.setPage('boot'),
-    izofetch: () => setText(text => text + IZOFETCH),
-    shutdown: () => { window.document.body.innerHTML = ''; history.back() },
   }
 
   const inputHandler = function (value: string, ev: KeyboardEvent) {
-    if (ev.key == 'Enter' && value != '')
-      (value.toLowerCase() in command) ?
-        (command[value.toLowerCase()](), inputRef.current!.value = '') : 
-        setText(text => text + `bash: ${value}: command not found<br/><br/>`); 
+    if (ev.key == 'Enter' && value != '') {
+      let input = value.toLowerCase();
+
+      (input in command) ?
+        command[input]() : 
+        setText(text => text + `bash: ${value}: command not found<br/>`);
+
+      inputRef.current!.value = '';
+    }
   }
 
   useEffect(() => {
@@ -37,7 +42,8 @@ const Terminal = (props: TerminalProps) => {
     `
     ${IZOFETCH}
     Welcome to my portfolio!<br/>
-    Type <span class=\'text-purple\'>\'HELP\'</span> - list all commands;<br/><br/>
+    Type <span class=\'text-purple\'>\'HELP\'</span> - list all commands;<br/>
+    Type <span class=\'text-purple\'>\'UI\'</span> - change to user-interface mode;<br/><br/>
     ${ABOUT}
     `); 
 

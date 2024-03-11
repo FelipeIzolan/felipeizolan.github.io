@@ -5,9 +5,8 @@ export const getSpriteImg = (id?: number, width?: number) => `<img src='${getSpr
 const createProject = (name: string, description: string, stack: string[], url: string) => 
 `
 | <span class='text-blue'>name</span>: ${name}
-| <span class='text-blue'>description</span>: ${description}
+| <span onclick="open('${url}', '_blank').focus()" class='text-blue'>description</span>: ${description}
 | <span class='text-blue'>stack</span>: ${stack.join(', ')}
-| <span class='text-blue'>url</span>: ${url}
 --`
 
 export const BIOS = `IzolipeOS - BIOS 0x66.042PC, v010.2434;<br/>` +
@@ -37,13 +36,13 @@ export const IZOFETCH = `
 <img class='mt-3' src='/izo.png' width=96 />
 <pre class='font-pixel ml-8'>
 <span class='text-blue'>felipeizolan</span>@<span class='text-orange'>izolipe_os</span>
----------------------
+-------------------------
 <span class='text-blue'>OS</span>: Arch Linux x86_64
 <span class='text-blue'>Kernel</span>: 6.6.10-arch1-1
 <span class='text-blue'>CPU</span>: AMD Ryzen 5 7520U (8) @ 6.73 GHz
 <span class='text-blue'>GPU</span>: AMD Mendocino
 <span class='text-blue'>RAM</span>: 8 GiB    
----------------------
+-------------------------
 </pre>
 </div>
 <br/>
@@ -79,8 +78,7 @@ I like Computer, Linux, Nature, Food and Games.
 `
 
 export const SKILL = `
-<pre class='font-pixel'>
--- <span class='text-green'>SKILL</span> --
+<pre class='font-pixel text-left'>
 <span class='text-blue'>Languages</span>
 |-- C
 |-- C++
@@ -88,7 +86,8 @@ export const SKILL = `
 |-- JavaScript
 |-- TypeScript
 |-- HTML
-\`-- CSS
+|-- CSS
+\`-- Bash
 
 <span class='text-blue'>Database</span>
 |-- NoSQL
@@ -96,13 +95,16 @@ export const SKILL = `
 |   |-- Firebase
 |   \`-- Redis (or KeyDB)
 \`-- SQL
-    \`-- MySql
+    \`-- MySQL
 
 <span class='text-blue'>Operational-System</span>
 |-- Linux
 \`-- Windows
+
+<span class='text-blue'>Text-Editor</span>
+|-- Visual Studio Code
+\`-- NeoVim
 </pre>
-<br/>
 `
 
 export const SOCIAL = `
@@ -120,12 +122,11 @@ export const PROJECT = `
 -- <span class='text-green'>PROJECT</span> --
 ${
 '|' +
-createProject('fishtude', 'Open-source fishing game.', ['C', 'SDL2'], 'github.com/FelipeIzolan/phaser-isometric-engine') +
-createProject('phaser-isometric-engine', 'Grid based isometric-engine.', ['TypeScript', 'Phaser', 'Vite'], 'github.com/FelipeIzolan/phaser-isometric-engine') +
+createProject('fishtude', 'Open-source fishing game.', ['C', 'SDL2'], 'https://github.com/felipeizolan/fishtude') +
+createProject('phaser-isometric-engine', 'Grid based isometric-engine.', ['TypeScript', 'Phaser', 'Vite'], 'https://github.com/FelipeIzolan/phaser-isometric-engine') +
 createProject('spaceworm', 'Casual retro-style indie game', ['Pico-8', 'Lua'], 'store.steampowered.com/app/2367320/SpaceWorm') + 
 createProject('lipoide.nvim', 'My neovim colorscheme.', ['Neovim', 'Lua'], 'github.com/FelipeIzolan/lipoide.nvim') 
 }
 </pre>
 <br/>
 `
-

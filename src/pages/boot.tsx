@@ -1,8 +1,8 @@
 import { StateUpdater, useEffect, useState } from "preact/hooks";
-import { BIOS, getSpriteImg, logOK } from "../utils";
+import { BIOS, getSpriteImg, logOK } from "../components/terminal";
 
 type BootProps = {
-  setPage: StateUpdater<'boot' | 'terminal'>;
+  setPage: StateUpdater<'boot' | 'terminal' | 'ui'>;
 };
 
 type Step = [string, number];
@@ -49,7 +49,7 @@ const Boot = (props: BootProps) => {
     for (let [text, delay] of steps)
       setTimeout(() => setText(prevText => prevText + text), time += delay);
 
-    setTimeout(() => props.setPage('terminal'), time + 800);
+    setTimeout(() => props.setPage('ui'), time + 800);
     // time == 3000;
   }, []);
 
