@@ -2,10 +2,10 @@ export const logOK = (log: string) => `[ <span class="text-green">OK</span> ] ${
 export const getSprite = (id: number) => `https://raw.githubusercontent.com/Purukitto/pokemon-data.json/master/images/pokedex/sprites/${'0'.repeat(4 - Math.abs(Math.log10(id) + 1.001))}${id}.png`
 export const getSpriteImg = (id?: number, width?: number) => `<img src='${getSprite(id ?? Math.round(Math.random() * 809))}' width=${width ?? 128} /><br/>`;
 
-const createProject = (name: string, description: string, stack: string[], url: string) => 
+const createProject = (name: string, description: string, stack: string[]) => 
 `
 | <span class='text-blue'>name</span>: ${name}
-| <span onclick="open('${url}', '_blank').focus()" class='text-blue'>description</span>: ${description}
+| <span class='text-blue'>description</span>: ${description}
 | <span class='text-blue'>stack</span>: ${stack.join(', ')}
 --`
 
@@ -122,10 +122,10 @@ export const PROJECT = `
 -- <span class='text-green'>PROJECT</span> --
 ${
 '|' +
-createProject('fishtude', 'Open-source fishing game.', ['C', 'SDL2'], 'https://github.com/felipeizolan/fishtude') +
-createProject('phaser-isometric-engine', 'Grid based isometric-engine.', ['TypeScript', 'Phaser', 'Vite'], 'https://github.com/FelipeIzolan/phaser-isometric-engine') +
-createProject('spaceworm', 'Casual retro-style indie game', ['Pico-8', 'Lua'], 'store.steampowered.com/app/2367320/SpaceWorm') + 
-createProject('lipoide.nvim', 'My neovim colorscheme.', ['Neovim', 'Lua'], 'github.com/FelipeIzolan/lipoide.nvim') 
+createProject('fishtude', 'Open-source fishing game.', ['C', 'SDL2']) +
+createProject('phaser-isometric-engine', 'Grid based isometric-engine.', ['TypeScript', 'Phaser', 'Vite']) +
+createProject('spaceworm', 'Casual retro-style indie game', ['Pico-8', 'Lua']) + 
+createProject('lipoide.nvim', 'My neovim colorscheme.', ['Neovim', 'Lua']) 
 }
 </pre>
 <br/>
